@@ -43,13 +43,33 @@ Generally, this piece of code goes at the bottom of our ```server.py``` file - e
 
 
 
-Now, if we go to localhost:3000, we should see something like this:
+Now, if we go to ```localhost:3000```, we should see something like this:
+
+![image](https://github.com/Omar2220/Flask-Building_Simple_Server_Part_1/assets/75393462/c28c7727-c964-4ee6-af6e-d2001f3d27af)
+
+
+This might seem bad, but it is better than this error:
+
+![image](https://github.com/Omar2220/Flask-Building_Simple_Server_Part_1/assets/75393462/20cbba7c-7628-4792-a350-936ad101f687)
+
+The error we’re seeing is straightforward: when we try to go to ```localhost:3000```, we (technically the browser) are making a GET request. The browser is trying to get something from that address. However, our ```server.py``` file (which is the code running our server) looks like this:
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+
+if __name__ == '__main__':
+    app.run(port=3000)
+
+```
+doesn’t know how to respond.
+We’re not doing anything except for running a server - we haven’t given it any instructions to respond to anyone!
+
 
 ## Authors
 - [@Omar2220](https://www.github.com/Omar2220)
 
 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
